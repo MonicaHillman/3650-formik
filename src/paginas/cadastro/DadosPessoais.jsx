@@ -46,8 +46,40 @@ const DadosPessoais = () => {
             email: '',
             senha: '',
             confirmarSenha: ''
-        }}>
-            {formik => {
+        }}
+            validate={(values) => {
+                const errors = {};
+                if (!values.nome) {
+                    errors.nome = 'Campo obrigatório'
+                }
+                if (!values.estado) {
+                    errors.estado = 'Campo obrigatório';
+                }
+                if (!values.cidade) {
+                    errors.cidade = 'Campo obrigatório';
+                }
+                if (!values.senha) {
+                    errors.senha = 'Campo obrigatório';
+                }
+                if (!values.telefone) {
+                    errors.telefone = 'Campo obrigatório'
+                } else if (!/^\d{11}$/i.test(values.telefone)) {
+                    errors.telefone = 'Número de telefone inválido'
+                }
+                if (!values.email) {
+                    errors.email = 'Campo obrigatório'
+                } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+                    errors.email = 'Email inválido'
+                }
+                if (!values.confirmarSenha) {
+                    errors.confirmarSenha = 'Campo obrigatório'
+                } else if (values.senha != values.confirmarSenha) {
+                    errors.confirmarSenha = 'As senhas não conferem'
+                }
+                return errors;
+            }}
+        >
+            {formik => (
                 <Form onSubmit={formik.handleSubmit}>
                     <div style={{ textAlign: 'center' }}>
                         <Tipografia variante="h1" componente="h1">
@@ -71,9 +103,6 @@ const DadosPessoais = () => {
                             <ListaSupensa
                                 titulo="Estado"
                                 opcoes={estadosBrasileiros}
-                                valor={formik.values.estado}
-                                onChange={formik.handleChange}
-                                onBlur={formik.handleBlur}
                             />
                         </Col>
                         <Col lg={8} md={8} sm={8}>
@@ -140,7 +169,7 @@ const DadosPessoais = () => {
                         </Col>
                     </Row>
                 </Form>
-            }}
+            )}
         </Formik>
 
     );
