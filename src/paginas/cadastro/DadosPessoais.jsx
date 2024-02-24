@@ -78,6 +78,9 @@ const DadosPessoais = () => {
                 }
                 return errors;
             }}
+            onSubmit={(values) => {
+                console.log('dados do formulário', values)
+            }}
         >
             {formik => (
                 <Form onSubmit={formik.handleSubmit}>
@@ -110,7 +113,6 @@ const DadosPessoais = () => {
                                 titulo="Cidade"
                                 name='cidade'
                                 type='text'
-                                required
                             />
                         </Col>
                     </Row>
@@ -120,7 +122,6 @@ const DadosPessoais = () => {
                                 titulo="E-mail"
                                 name='email'
                                 type='email'
-                                required
                             />
                         </Col>
                         <Col lg={6} md={6} sm={6}>
@@ -128,7 +129,6 @@ const DadosPessoais = () => {
                                 titulo="Telefone"
                                 name='telefone'
                                 type='tel'
-                                required
                             />
                         </Col>
                     </Row>
@@ -138,7 +138,6 @@ const DadosPessoais = () => {
                                 titulo="Senha"
                                 name='senha'
                                 tipo='password'
-                                required
                             />
                         </Col>
                         <Col lg={6} md={6} sm={6}>
@@ -146,7 +145,6 @@ const DadosPessoais = () => {
                                 titulo="Confirme sua senha"
                                 name='confirmarSenha'
                                 tipo='password'
-                                required
                             />
                         </Col>
                     </Row>
