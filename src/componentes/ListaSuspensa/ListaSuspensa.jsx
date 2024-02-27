@@ -2,7 +2,6 @@ import styled from "@emotion/styled"
 import { useState } from "react"
 import { ItemListaSuspensaEstilizado } from "./ItemListaSuspensaEstilizado"
 import { ListaSuspensaEstilizada } from "./ListaSuspensaEstilizada"
-import { useFormikContext } from "formik"
 
 const LabelEstilizada = styled.label`
     display: block;
@@ -39,9 +38,9 @@ const BotaoEstilizado = styled.button`
     }
 `
 
-export const ListaSupensa = ({ titulo, opcoes }) => {
+export const ListaSupensa = ({ titulo, opcoes, valor, onChange }) => {
     const [estaAberta, alternarVisibilidade] = useState(false)
-    const { setFieldValue, values } = useFormikContext();
+
     const [opcaoFocada, setOpcaoFocada] = useState(null);
 
     const manipularTeclaDoTeclado = (evento) => {
@@ -97,7 +96,7 @@ export const ListaSupensa = ({ titulo, opcoes }) => {
             type='button'
         >
             <div>
-                {values.estado ? values.estado : 'Selecione'}
+                {valor ? valor.text : 'Selecione'}
             </div>
             <div>
                 <span>{estaAberta ? '▲' : '▼'}</span>
@@ -107,7 +106,7 @@ export const ListaSupensa = ({ titulo, opcoes }) => {
             {opcoes.map((opcao, index) => <ItemListaSuspensaEstilizado
                 key={opcao.value}
                 focoAtivo={index === opcaoFocada}
-                onClick={() => setFieldValue('estado', opcao.text)}
+                onClick={() => onChange(opcao)}
             >
                 {opcao.text}
             </ItemListaSuspensaEstilizado>)}

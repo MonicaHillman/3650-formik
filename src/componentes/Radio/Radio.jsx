@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { Field } from "formik";
 
 
 const LabelEstilizada = styled.label`
@@ -31,7 +30,7 @@ const LabelEstilizada = styled.label`
     }
 `;
 
-const InputEscondido = styled(Field)`
+const InputEscondido = styled.input`
     appearance: none;
     opacity: 0;
     &:focus + label {
@@ -41,10 +40,10 @@ const InputEscondido = styled(Field)`
     }
 `
 
-const Radio = ({ value, label, checked, name }) => (
+const Radio = ({ valor, label, checked, onClick }) => (
     <>
-        <InputEscondido type="radio" name={name} value={value} checked={checked} id={`radio-customizado-${value}`} />
-        <LabelEstilizada htmlFor={`radio-customizado-${value}`} checked={checked}>
+        <InputEscondido type="radio" valor={valor} checked={checked} onChange={onClick} id={`radio-customizado-${valor}`} />
+        <LabelEstilizada htmlFor={`radio-customizado-${valor}`} checked={checked}>
             {label}
         </LabelEstilizada>
     </>

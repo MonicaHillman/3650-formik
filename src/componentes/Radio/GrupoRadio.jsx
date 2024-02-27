@@ -1,17 +1,15 @@
-import { useFormikContext } from "formik";
 import Radio from "./Radio";
 
-const GrupoRadio = ({ opcoes }) => {
-  const { values } = useFormikContext();
+const GrupoRadio = ({ opcoes, valor, onChange }) => {
   return (
     <div>
       {opcoes.map((option) => (
         <Radio
           key={option.valor}
-          value={option.label}
+          valor={option.valor}
           label={option.label}
-          checked={option.label === values.interesse}
-          name='interesse'
+          checked={option.valor === valor}
+          onClick={() => onChange(option.valor)}
         />
       ))}
     </div>
