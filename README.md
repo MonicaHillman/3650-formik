@@ -31,8 +31,3 @@ E muito mais!
 Para abrir e rodar o projeto, execute `npm i` para instalar as dependências e `npm dev` para inicar o projeto.
 
 Depois, acesse <a href="http://localhost:5173/">http://localhost:5173/</a> no seu navegador.
-
-## 📚 Mais informações do curso
-
-O Freelando é uma StartUP fictícia utilizada nesse curso da Alura.
-A ideia principal desse curso é evoluir ainda mais os conhecimentos em React e estilização de componentes.
