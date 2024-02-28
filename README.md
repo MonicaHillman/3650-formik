@@ -28,6 +28,6 @@ E muito mais!
 
 ## 🛠️ Abrir e rodar o projeto
 
-Para abrir e rodar o projeto, execute `npm i` para instalar as dependências e `npm dev` para inicar o projeto.
+Para abrir e rodar o projeto, execute `npm i` para instalar as dependências e `npm run dev` para inicar o projeto.
 
 Depois, acesse <a href="http://localhost:5173/">http://localhost:5173/</a> no seu navegador.
