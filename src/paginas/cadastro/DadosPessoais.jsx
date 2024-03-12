@@ -38,10 +38,6 @@ const estadosBrasileiros = [
     { "text": "Tocantins", "value": "TO" }
 ]
 
-const validationSchema = Yup.object().shape({
-    nome: Yup.string().required('Campo obrigatório')
-})
-
 const DadosPessoais = () => {
     return (
         <Formik initialValues={{
